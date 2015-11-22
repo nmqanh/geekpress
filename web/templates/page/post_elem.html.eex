@@ -1,0 +1,79 @@
+<% {year, month, day} = @post.date %>
+
+<%
+# Justified versions of the month and day
+{j_month, j_day} = {
+  String.rjust(Integer.to_string(month), 2, ?0),
+  String.rjust(Integer.to_string(day), 2, ?0)
+}
+%>
+
+<div class="post">
+  <div class="post-header">
+    
+    <%= if @short do %>
+      <a href="<%= page_path @conn, :post, year, j_month, j_day, @post.slug %>">
+        <h1><%= @post.title %></h1>
+      </a>
+    <%= else %>
+      <h1><%= @post.title %></h1>
+    <% end %>
+
+    <div class="post-meta">
+      <span>
+        Posted on
+        <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a>.
+      </span>
+
+      <%= if @post.tags do %>
+        <ul class="post-tags">
+          <%= for tag <- @post.tags do %>
+            <li>
+              <a href="<%= page_path @conn, :tag, tag, 1 %>">
+                <%= tag %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <%= if @short do %>
+    <div class="post-content post-short-content">
+      <%= raw @post.short_content %>
+
+      <%= if @force_read_more or @post.has_more do %>
+        <p>
+          <a href="<%= page_path @conn, :post, year, j_month, j_day, @post.slug %>">
+            Read more…
+          </a>
+        </p>
+      <% end %>
+    </div>
+  <%= else %>
+    <div class="post-content">
+      <%= raw @post.content %>
+    </div>
+  <% end %>
+
+  <%= if not @short and @disqus_comments do %>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "<%= @disqus_shortname %>";
+        var disqus_title = "<%= @post.title %>";
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus</a>.
+    </noscript>
+  <% end %>
+
+</div>

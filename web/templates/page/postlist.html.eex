@@ -1,0 +1,55 @@
+<%= for post <- @posts do %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-push-1">
+      <%= render "post_elem.html", Map.merge(assigns, %{post: post, short: true}) %>
+    </div>
+  </div>
+<% end %>
+
+<%
+  pagination_args = [@conn, @page_type | @page_args]
+  total_pages = trunc Float.ceil(@total_count / @posts_per_page)
+%>
+
+<%= if @total_count > @posts_per_page do %>
+  <nav>
+    <ul class="pagination">
+      <%= if (@current_page - 1) < 1 do %>
+        <li class="disabled">
+          <span>&laquo;</span>
+        </li>
+      <%= else %>
+        <li>
+          <a href="<%= apply(MebeWeb.Router.Helpers, :page_path,  pagination_args ++ [@current_page - 1]) %>">
+            &laquo;
+          </a>
+        </li>
+      <% end %>
+
+      <%= for page_no <- 1..total_pages do %>
+        <%= if page_no === @current_page do %>
+          <li class="active">
+        <%= else %>
+          <li>
+        <% end %>
+
+          <a href="<%= apply(MebeWeb.Router.Helpers, :page_path, pagination_args ++ [page_no]) %>">
+            <%= page_no %>
+          </a>
+        </li>
+      <% end %>
+
+      <%= if (@current_page + 1) > total_pages do %>
+        <li class="disabled">
+          <span>&raquo;</span>
+        </li>
+      <%= else %>
+        <li>
+          <a href="<%= apply(MebeWeb.Router.Helpers, :page_path, pagination_args ++ [@current_page + 1]) %>">
+            &raquo;
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

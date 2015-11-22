@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+# This script will send the refresh command to a specified Mebe instance
+# The name of the instance (given with --sname <name>) should be given as the first argument
+# The second argument should be the local hostname of the node running Mebe
+# You need the expect program to use this script
+
+set timeout 10
+set name [lindex $argv 0]
+set node [lindex $argv 1]
+
+spawn iex --sname meberefresher
+
+expect "iex\(" { send "" }
+expect -- " -->" { send "r '$name@$node' 'Elixir.IEx'\n" }
+expect -- " -->" { send "c\n" }
+expect "iex\(" { send "GenServer.call MebeEngine.worker_name, :refresh\n" }
+expect "iex\(" { send "^D" }

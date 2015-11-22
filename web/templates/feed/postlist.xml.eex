@@ -1,0 +1,45 @@
+<%= for post <- @posts do %>
+  <% {year, month, day} = post.date %>
+
+  <%
+  # Justified versions of the month and day
+  {j_month, j_day} = {
+    String.rjust(Integer.to_string(month), 2, ?0),
+    String.rjust(Integer.to_string(day), 2, ?0)
+  }
+  %>
+
+  <%
+  # Quick and dirty RFC 822 month converter
+  rfc_month = Enum.at(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], month - 1)
+
+  data = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
+  dow_year = if month < 3, do: year - 1, else: year
+  dow = rem(dow_year + div(dow_year, 4) - div(dow_year, 100) + div(dow_year, 400) + Enum.at(data, month - 1) + day, 7)
+  dow_str = Enum.at(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], dow - 1)
+  %>
+
+  <item>
+    <title>
+      <![CDATA[<%= post.title %>]]>
+    </title>
+    <link><%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %></link>
+    <guid><%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %></guid>
+    <description>
+      <![CDATA[
+
+      <%= if show_full do %>
+        <%= post.content %>
+      <% else %>
+        <%= post.short_content %>
+      <% end %>
+
+      <a href="<%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %>">
+        Read more…
+      </a>
+
+      ]]>
+    </description>
+    <pubDate><%= dow_str %>, <%= day %> <%= rfc_month %> <%= year %> 00:00:00 UT</pubDate>
+  </item>
+<% end %>

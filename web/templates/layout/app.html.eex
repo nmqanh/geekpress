@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="<%= Application.get_env :mebe_web, :blog_author %>">
+
+    <title><%= title @conn %></title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    
+    <%= if @feeds_enabled do %>
+      <%= if assigns[:page_type] == :tag do %>
+        <link href="<%= @absolute_url %><%= feed_path @conn, :tag, @tag %>" rel="alternate" type="application/rss+xml" title="RSS feed for tag <%= @tag %>" />
+      <% else %>
+        <link href="<%= @absolute_url %><%= feed_path @conn, :index %>" rel="alternate" type="application/rss+xml" title="RSS feed" />
+      <% end %>
+    <% end %>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="<%= @absolute_url %>" class="navbar-brand">
+            <%= @blog_name %>
+          </a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li><a href="<%= page_path @conn, :page, "about" %>">About</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= @inner %>
+
+      <div class="footer row">
+        <div class="col-xs-12 col-sm-4">
+          <p>
+            © <%= @blog_author %>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <p>
+            <a href="<%= page_path @conn, :page, "mebe" %>">
+              Powered by Elixir + Phoenix + Mebe
+            </a>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <p>
+            <% {time, unit} = request_time @conn %>
+            Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit %>.
+          </p>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/old_hash_redirector.js") %>"></script>
+
+    <%= raw extra_html %>
+  </body>
+</html>

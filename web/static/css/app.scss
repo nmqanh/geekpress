@@ -1,0 +1,115 @@
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "variables";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootswatch";
+
+/* Scale images with the width of the site */
+.postimage, p>img {
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+/* Style images and their captions */
+figure {
+    width: 100%;
+    border: none;
+
+    &.thumbnail {
+        border: none;
+    }
+}
+
+figure>img {
+    margin: auto 0;
+}
+
+figcaption {
+    margin: 10px;
+    font-family: "Garamond Pro", "Times New Roman", serif;
+    font-size: 1.1em;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+}
+
+/* YouTube videos */
+iframe.youtube {
+    width: 100%;
+    max-width: 560px;
+    min-height: 315px;
+}
+
+/* Table styles */
+table {
+    margin: 10px;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #eee;
+}
+
+
+#disqus_thread {
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+
+/* Fix heading */
+.navbar-default {
+    width: 100%;
+    border-radius: 0;
+}
+
+.footer {
+    margin: 30px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid #444;
+
+    div {
+        text-align: center;
+    }
+}
+
+
+
+/* Post styles */
+
+.post-header {
+    margin-bottom: 20px;
+
+    h1 {
+        margin-top: 30px;
+    }
+
+    .post-meta {
+        font-style: italic;
+    }
+}
+
+.container .row:first-child .post-header h1 {
+    margin-top: 0;
+}
+
+ul.post-tags {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    li {
+        display: inline-block;
+
+        padding: 3px;
+        background-color: #123456;
+        border-radius: 3px;
+
+        a {
+            color: #abcdef;
+        }
+    }
+}
