@@ -1,9 +1,1 @@
-<% month = String.rjust(Integer.to_string(@month), 2, ?0) %>
-
-<div class="jumbotron">
-  <p>
-    Viewing posts for the month <em><%= @year %>-<%= month %></em>.
-  </p>
-</div>
-
 <%= render "postlist.html", assigns %>

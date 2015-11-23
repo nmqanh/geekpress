@@ -28,17 +28,18 @@
 
                 <%= if assigns[:page_type] == :year do %>
                     <div class="site-heading">
-                        <span class="subheading">Viewing posts with tag</span>
+                        <span class="subheading">Viewing posts for the year</span>
                         <hr class="small">
-                        <h1><%= @tag %></h1>
+                        <h1><%= @year %></h1>
                     </div>
                 <% end %>
 
                 <%= if assigns[:page_type] == :month do %>
+                    <% month = String.rjust(Integer.to_string(@month), 2, ?0) %>
                     <div class="site-heading">
-                        <span class="subheading">Viewing posts with tag</span>
+                        <span class="subheading">Viewing posts for the month</span>
                         <hr class="small">
-                        <h1><%= @tag %></h1>
+                        <h1><%= @year %>-<%= month %></h1>
                     </div>
                 <% end %>
 

@@ -1,7 +1,1 @@
-<div class="jumbotron">
-  <p>
-    Viewing posts for the year <em><%= @year %></em>.
-  </p>
-</div>
-
 <%= render "postlist.html", assigns %>
