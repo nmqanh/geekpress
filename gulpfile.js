@@ -29,12 +29,11 @@ var dest_path = 'priv/static/';
 gulp.task('js', function() {
   return gulp.src([
       // Uncomment these two lines if you need bootstrap or jQuery
-      //node_path + 'jquery/dist/jquery.js',
-      //node_path + 'bootstrap-sass/assets/javascripts/bootstrap.js',
+      node_path + 'jquery/dist/jquery.js',
+      node_path + 'bootstrap-sass/assets/javascripts/bootstrap.js',
       'web/static/js/*.js'
     ])
-  
-  //.pipe(concat('app.js'))
+  .pipe(concat('app.js'))
   .pipe(sourcemaps.init())
   .pipe(size({title: 'Original JS'}))
   .pipe(uglify({ preserveComments: false }).on('error', console.error.bind(console)))
@@ -58,9 +57,18 @@ gulp.task('css', function() {
     .pipe(gulp.dest(dest_path + 'css/'));
   });
 
+// Copies images
+gulp.task('images', function() {
+  return gulp.src('web/static/images/*')
+  .pipe(gulp.dest(dest_path + 'images/'));
+});
+
 // Copies fonts
 gulp.task('fonts', function() {
-  return gulp.src(node_path + 'bootstrap-sass/assets/fonts/bootstrap/*')
+  return gulp.src([
+    node_path + 'font-awesome/fonts/*',
+    node_path + 'bootstrap-sass/assets/fonts/bootstrap/*'
+  ])
   .pipe(gulp.dest(dest_path + 'fonts/'));
 });
 
@@ -70,7 +78,7 @@ gulp.task('clean', function() {
   .pipe(vinylPaths(del));
 });
 
-gulp.task('default', ['js', 'css', 'fonts'], function(callback) {
+gulp.task('default', ['js', 'css', 'images', 'fonts'], function(callback) {
   callback();
   console.log('\nPlaced optimized files in ' + chalk.magenta(dest_path));
 });

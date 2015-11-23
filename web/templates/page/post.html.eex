@@ -1,1 +1,1 @@
-<%= render "post_elem.html", Map.put(assigns, :short, false) %>
+<%= render "post_full.html", Map.put(assigns, :short, false) %>

@@ -51,7 +51,7 @@ defmodule MebeEngine.DB do
       {year, month, day} = post.date
       {{year, month, day, post.slug}, post}
     end
-    
+
     :ets.insert @post_table, ordered_posts
     :ets.insert @single_post_table, single_posts
   end

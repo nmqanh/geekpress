@@ -1,19 +1,19 @@
-<%= for post <- @posts do %>
-  <div class="row">
-    <div class="col-xs-10 col-xs-push-1">
-      <%= render "post_elem.html", Map.merge(assigns, %{post: post, short: true}) %>
-    </div>
-  </div>
-<% end %>
-
 <%
   pagination_args = [@conn, @page_type | @page_args]
   total_pages = trunc Float.ceil(@total_count / @posts_per_page)
 %>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <%= for post <- @posts do %>
+      <div class="post-preview">
+        <%= render "post_elem.html", Map.merge(assigns, %{post: post, short: true}) %>
+      </div>
+      <hr>
+    <% end %>
+    <!-- Pager -->
+    <%= if @total_count > @posts_per_page do %>
 
-<%= if @total_count > @posts_per_page do %>
-  <nav>
-    <ul class="pagination">
+    <ul class="pagination text-right">
       <%= if (@current_page - 1) < 1 do %>
         <li class="disabled">
           <span>&laquo;</span>
@@ -51,5 +51,11 @@
         </li>
       <% end %>
     </ul>
-  </nav>
+
 <% end %>
+
+  </div>
+</div>
+
+
+

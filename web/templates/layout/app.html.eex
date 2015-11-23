@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
     <meta name="author" content="<%= Application.get_env :mebe_web, :blog_author %>">
 
     <title><%= title @conn %></title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <%= if @feeds_enabled do %>
       <%= if assigns[:page_type] == :tag do %>
         <link href="<%= @absolute_url %><%= feed_path @conn, :tag, @tag %>" rel="alternate" type="application/rss+xml" title="RSS feed for tag <%= @tag %>" />
@@ -16,51 +31,96 @@
         <link href="<%= @absolute_url %><%= feed_path @conn, :index %>" rel="alternate" type="application/rss+xml" title="RSS feed" />
       <% end %>
     <% end %>
-  </head>
+</head>
 
-  <body>
-    <div class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="<%= @absolute_url %>" class="navbar-brand">
-            <%= @blog_name %>
-          </a>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="<%= @absolute_url %>" class="navbar-brand">
+                  <%= @blog_name %>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<%= @absolute_url %>" class="navbar-brand">
+                          Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= page_path @conn, :page, "about" %>">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
+    </nav>
 
-        <ul class="nav navbar-nav">
-          <li><a href="<%= page_path @conn, :page, "about" %>">About</a></li>
-        </ul>
-      </div>
-    </div>
+    <!-- Page Header -->
+    <%= render "header.html", assigns %>
 
+    <!-- Main Content -->
     <div class="container">
       <%= @inner %>
+    </div>
 
-      <div class="footer row">
-        <div class="col-xs-12 col-sm-4">
-          <p>
-            © <%= @blog_author %>
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <p>
-            <a href="<%= page_path @conn, :page, "mebe" %>">
-              Powered by Elixir + Phoenix + Mebe
-            </a>
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <p>
-            <% {time, unit} = request_time @conn %>
-            Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit %>.
-          </p>
-        </div>
-      </div>
+    <hr>
 
-    </div> <!-- /container -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; <%= @blog_author %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- javascripts -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script src="<%= static_path(@conn, "/js/old_hash_redirector.js") %>"></script>
-
     <%= raw extra_html %>
-  </body>
+</body>
+
 </html>
+

@@ -1,0 +1,68 @@
+<!-- Set your background image for this header on the line below. -->
+<%
+    blog_feature_image = if assigns[:page_type] == :post do
+        if Map.has_key?(@post, :feature_image), do: @post[:feature_image], else: @blog_feature_image
+    else
+        @blog_feature_image
+    end
+%>
+<header class="intro-header" style="background-image: url('<%= static_path(@conn, blog_feature_image) %>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <%= if assigns[:page_type] == :index do %>
+                    <div class="site-heading">
+                        <h1><%= @blog_title %></h1>
+                        <hr class="small">
+                        <span class="subheading"><%= @blog_headline %></span>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :tag do %>
+                    <div class="site-heading">
+                        <span class="subheading">Viewing posts with tag</span>
+                        <hr class="small">
+                        <h1><%= @tag %></h1>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :year do %>
+                    <div class="site-heading">
+                        <span class="subheading">Viewing posts with tag</span>
+                        <hr class="small">
+                        <h1><%= @tag %></h1>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :month do %>
+                    <div class="site-heading">
+                        <span class="subheading">Viewing posts with tag</span>
+                        <hr class="small">
+                        <h1><%= @tag %></h1>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :post do %>
+                    <% {year, month, day} = @post.date %>
+                    <%
+                    # Justified versions of the month and day
+                    {j_month, j_day} = {
+                      String.rjust(Integer.to_string(month), 2, ?0),
+                      String.rjust(Integer.to_string(day), 2, ?0)
+                    }
+                    %>
+                    <div class="post-heading">
+                        <h1><%= @post.title %></h1>
+                        <span class="meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a></span>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :not_found do %>
+                    <div class="site-heading">
+                        <h1>404 Not Found!</h1>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</header>

@@ -103,7 +103,7 @@ defmodule MebeWeb.PageController do
       Integer.parse(month),
       Integer.parse(day)
     } do
-      {{y_int, _}, {m_int, _}, {d_int, _}} -> 
+      {{y_int, _}, {m_int, _}, {d_int, _}} ->
         case DB.get_post y_int, m_int, d_int, slug do
           nil ->
             render_404 conn
@@ -112,6 +112,7 @@ defmodule MebeWeb.PageController do
             conn
             |> insert_config
             |> assign(:post, post)
+            |> assign(:page_type, :post)
             |> render("post.html")
         end
 
@@ -161,6 +162,7 @@ defmodule MebeWeb.PageController do
 
   defp render_404(conn) do
     conn
+    |> assign(:page_type, :not_found)
     |> insert_config
     |> put_status(:not_found)
     |> render(MebeWeb.ErrorView, :"404")

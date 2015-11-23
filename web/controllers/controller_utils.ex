@@ -7,6 +7,9 @@ defmodule MebeWeb.ControllerUtils do
 
   @blog_name Application.get_env(:mebe_web, :blog_name)
   @blog_author Application.get_env(:mebe_web, :blog_author)
+  @blog_title Application.get_env(:mebe_web, :blog_title)
+  @blog_headline Application.get_env(:mebe_web, :blog_headline)
+  @blog_feature_image Application.get_env(:mebe_web, :blog_feature_image)
   @absolute_url Application.get_env(:mebe_web, :absolute_url)
   @posts_per_page Application.get_env(:mebe_web, :posts_per_page)
   @disqus_comments Application.get_env(:mebe_web, :disqus_comments)
@@ -33,6 +36,9 @@ defmodule MebeWeb.ControllerUtils do
     conn
     |> assign(:blog_name, @blog_name)
     |> assign(:blog_author, @blog_author)
+    |> assign(:blog_title, @blog_title)
+    |> assign(:blog_headline, @blog_headline)
+    |> assign(:blog_feature_image, @blog_feature_image)
     |> assign(:absolute_url, @absolute_url)
     |> assign(:posts_per_page, @posts_per_page)
     |> assign(:disqus_comments, @disqus_comments)

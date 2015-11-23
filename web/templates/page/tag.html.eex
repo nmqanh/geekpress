@@ -1,7 +1,1 @@
-<div class="jumbotron">
-  <p>
-    Viewing posts with tag <em><%= @tag %></em>.
-  </p>
-</div>
-
 <%= render "postlist.html", assigns %>
