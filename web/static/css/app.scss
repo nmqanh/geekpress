@@ -475,7 +475,7 @@ body {
 
 
 .post-tags {
-    display: inline;
+    display: block;
     padding-left: 0;
     li {
         a {
@@ -510,6 +510,21 @@ body {
                 padding: 8px 15px !important;
             }
             margin-left: 0.8em;
+        }
+    }
+
+    .address {
+        > img {
+            display: inline;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+
+        > p {
+            margin: 0 0 0 5px;
+            display: inline-block;
+            font-size: 13px;
         }
     }
 }

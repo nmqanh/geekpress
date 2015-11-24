@@ -17,6 +17,7 @@ defmodule MebeWeb.ControllerUtils do
   @disqus_shortname Application.get_env(:mebe_web, :disqus_shortname)
   @feeds_enabled Application.get_env(:mebe_web, :enable_feeds)
   @force_read_more Application.get_env(:mebe_web, :force_read_more)
+  @blog_authors Application.get_env(:mebe_web, :blog_authors)
 
   @doc """
   Render a list of posts with the given template and params. The posts
@@ -39,6 +40,7 @@ defmodule MebeWeb.ControllerUtils do
     |> assign(:blog_title, @blog_title)
     |> assign(:blog_headline, @blog_headline)
     |> assign(:blog_feature_image, @blog_feature_image)
+    |> assign(:blog_authors, @blog_authors)
     |> assign(:absolute_url, @absolute_url)
     |> assign(:posts_per_page, @posts_per_page)
     |> assign(:disqus_comments, @disqus_comments)

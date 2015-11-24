@@ -14,26 +14,35 @@
           </ul>
         <% end %>
         <%= raw @post.content %>
+        <hr />
+        <div class="address">
+          <img src="<%= static_path(@conn, @blog_authors[@post.author].avatar) %>">
+          <p>
+            <strong><%= @blog_authors[@post.author].full_name %></strong>
+            <br />
+            <%= @blog_authors[@post.author].title %>
+          </p>
+        </div>
+        <hr />
+        <%= if @disqus_comments do %>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = "<%= @disqus_shortname %>";
+            var disqus_title = "<%= @post.title %>";
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>
+          Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus</a>.
+        </noscript>
+      <% end %>
       </div>
     </div>
   </div>
-
-  <%= if @disqus_comments do %>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = "<%= @disqus_shortname %>";
-        var disqus_title = "<%= @post.title %>";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>
-      Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus</a>.
-    </noscript>
-  <% end %>
 </article>

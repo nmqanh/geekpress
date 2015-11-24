@@ -5,8 +5,7 @@ defmodule MebeEngine.Models do
 
   defmodule PageData do
     defstruct filename: nil,
-      title: nil,
-      headers: [],
+      headers: %{},
       content: nil
   end
 
@@ -18,7 +17,8 @@ defmodule MebeEngine.Models do
       content: nil,
       short_content: nil,
       order: 0,
-      has_more: false
+      has_more: false,
+      author: ""
   end
 
   defmodule Page do

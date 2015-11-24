@@ -7,63 +7,68 @@ defmodule MebeEngine.Parser do
   alias MebeEngine.Models.Page
   alias MebeEngine.Models.Post
 
+  @blog_authors Application.get_env(:mebe_web, :blog_authors)
+
   def parse(pagedata, filename) do
-    split_lines(pagedata)
+    split_headers(pagedata)
     |> parse_raw(%PageData{filename: filename})
     |> render_content
     |> format
+  end
+
+  def split_headers(pagedata) do
+    String.split pagedata, ~R/---\r?\n/, trim: true
   end
 
   def split_lines(pagedata) do
     String.split pagedata, ~R/\r?\n/
   end
 
-
-  def parse_raw(datalines, pagedata \\ %PageData{}, mode \\ :title)
-
-  def parse_raw([title | rest], pagedata, :title) do
-    parse_raw rest, %{pagedata | title: title}, :headers
+  def split_lines(pagedata, :is_trim) do
+    String.split pagedata, ~R/\r?\n/, trim: true
   end
 
-  def parse_raw(["" | rest], pagedata, :headers) do
-    # Reverse the headers so they appear in the that they do in the file
-    parse_raw rest, %{pagedata | headers: Enum.reverse(pagedata.headers)}, :content
+  def split_header(header) do
+    String.split header, ~R{:}, trim: true
   end
 
-  def parse_raw([header | rest], pagedata, :headers) do
-    headers = [header | pagedata.headers]
-    parse_raw rest, %{pagedata | headers: headers}, :headers
+  def parse_raw(dataparts, pagedata \\ %PageData{}, mode \\ :headers)
+
+  def parse_raw([headers | content], pagedata, :headers) do
+    parse_raw(content, %{pagedata | headers: parse_headers(%{}, split_lines(headers, :is_trim))}, :content)
   end
 
   def parse_raw(content, pagedata, :content) when is_list(content) do
     %{pagedata | content: Enum.join(content, "\n")}
   end
 
+  def parse_headers(pageheaders, [header | rest]) do
+    [key, val] = split_header(header)
+    parse_headers Dict.put(pageheaders, String.to_atom(key), val), rest
+  end
 
+  def parse_headers(pageheaders, []) do
+    pageheaders
+  end
 
   def render_content(pagedata) do
     %{pagedata | content: Earmark.to_html pagedata.content}
   end
 
-
-
   def format(%PageData{
     filename: filename,
-    title: title,
     headers: headers,
     content: content
     }) do
-
     case Regex.run(~R/^(?:(\d{4})-(\d{2})-(\d{2})(?:-(\d{2}))?-)?(.*?).md$/iu, filename) do
       [_, "", "", "", "", slug] ->
         %Page{
           slug: slug,
-          title: title,
+          title: headers[:title],
           content: content
         }
 
       [_, year, month, day, order, slug] ->
-        [tags | _] = headers
 
         order = format_order order
 
@@ -71,9 +76,10 @@ defmodule MebeEngine.Parser do
 
         %Post{
           slug: slug,
-          title: title,
+          title: headers[:title],
           date: date_to_int_tuple({year, month, day}),
-          tags: parse_tags(tags),
+          tags: parse_tags(headers[:tags]),
+          author: default_author_if_not_found(headers),
           content: content,
           short_content: hd(split_content),
           order: order,
@@ -82,6 +88,10 @@ defmodule MebeEngine.Parser do
     end
   end
 
+  defp default_author_if_not_found(headers) do
+    [default | _] = Dict.keys(@blog_authors)
+    if Dict.has_key?(@blog_authors, String.to_atom(headers[:author] || "")), do: headers[:author], else: default
+  end
 
   defp parse_tags(tagline) do
     String.split tagline, ~R/,\s*/iu

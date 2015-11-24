@@ -54,7 +54,7 @@
                     %>
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
-                        <span class="meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a></span>
+                        <span class="meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @post.author %></span>
                     </div>
                 <% end %>
 
