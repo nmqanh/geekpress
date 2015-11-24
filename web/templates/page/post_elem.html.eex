@@ -11,7 +11,19 @@
       <%= @post.title %>
   </h2>
 </a>
-<p class="post-meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a></p>
+<div class="post-meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a>
+    <%= if @post.tags do %>
+      <ul class="post-tags">
+        <%= for tag <- @post.tags do %>
+          <li>
+            <a href="<%= page_path @conn, :tag, tag, 1 %>">
+              <span class="fa fa-tag"></span> <%= tag %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+</div>
 
 <div class="content">
   <%= raw @post.short_content %>

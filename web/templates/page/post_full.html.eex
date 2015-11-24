@@ -1,7 +1,18 @@
 <article>
-  <div class="container">
+  <div class="container post-content">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <%= if @post.tags do %>
+          <ul class="post-tags">
+            <%= for tag <- @post.tags do %>
+              <li>
+                <a href="<%= page_path @conn, :tag, tag, 1 %>">
+                  <span class="fa fa-tag"></span> <%= tag %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
         <%= raw @post.content %>
       </div>
     </div>

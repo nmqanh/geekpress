@@ -163,14 +163,14 @@ hr.small {
     background-attachment: scroll;
     @include background-cover;
     // NOTE: Background images are set within the HTML using inline CSS!
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     .site-heading,
     .post-heading,
     .page-heading {
         padding: 100px 0 50px;
         color: white;
         @media only screen and (min-width: 768px) {
-            padding: 150px 0;
+            padding: 100px 0;
         }
     }
     .site-heading,
@@ -189,7 +189,7 @@ hr.small {
         }
         @media only screen and (min-width: 768px) {
             h1 {
-                font-size: 80px;
+                font-size: 68px;
             }
         }
     }
@@ -471,4 +471,45 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: $brand-primary;
+}
+
+
+.post-tags {
+    display: inline;
+    padding-left: 0;
+    li {
+        a {
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: gray;
+            background: #f3f3f3;
+            text-decoration: none;
+            font-size: 0.7em !important;
+            letter-spacing: 0;
+            font-style: normal;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        a:hover {
+            color: #0085A1 !important;
+        }
+        margin-left: 0.4em;
+        list-style: none;
+        display: inline;
+    }
+    li:first-child {
+        margin-left: 0 !important;
+    }
+}
+
+.post-content {
+    .post-tags {
+        li {
+            a {
+                font-size: 0.8em !important;
+                padding: 8px 15px !important;
+            }
+            margin-left: 0.8em;
+        }
+    }
 }

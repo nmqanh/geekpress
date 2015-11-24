@@ -60,7 +60,7 @@
 
                 <%= if assigns[:page_type] == :not_found do %>
                     <div class="site-heading">
-                        <h1>404 Not Found!</h1>
+                        <h1>HTTP/1.1 <br/>404 Not Found!</h1>
                     </div>
                 <% end %>
             </div>
