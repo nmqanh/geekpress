@@ -22,7 +22,7 @@
                     <div class="site-heading">
                         <span class="subheading">Viewing posts with tag</span>
                         <hr class="small">
-                        <h1><%= @tag %></h1>
+                        <h1 style="text-transform: capitalize;"><%= @tag %></h1>
                     </div>
                 <% end %>
 
