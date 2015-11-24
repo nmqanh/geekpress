@@ -1,8 +1,10 @@
-# Mebe
+# GeekPress
 
 
-Mebe -- _the Minimalistic Elixir Blog Engine_ -- is a simple blog engine written in [Elixir](https://elixir-lang.org),
+GeekPress -- _the Beautiful Minimalistic Elixir Blog_ -- is the simplest and fastest blog for geeks written in [Elixir](https://elixir-lang.org),
 using the [Phoenix Framework](http://www.phoenixframework.org/).
+
+This engine is forked from [Mebe Blog Engine][https://blog.nytsoi.net] and I have been adding some features to make it more useful for my blogging need. I also added the default wonderful theme _Medium-like_ so you can  enjoy your writting without choosing a good theme for it.
 
 The engine consists of two parts:
 
@@ -16,7 +18,7 @@ The engine consists of two parts:
 * `npm install && gulp` to build the frontend.
 * `mix phoenix.server` to run the development server.
 
-## Features
+## Default Features in Mebe
 
 * Blog by just writing Markdown files, no admin UI
 * Automatic yearly, monthly and tag archives
@@ -26,10 +28,14 @@ The engine consists of two parts:
 * Expect script for refreshing blog from the command line
 * Splitting of posts so that only the beginning will be shown in a list view or feed
 
+## Features that I added to GeekPress
+* Default wonderful `Medium-like` theme.
+* Add feature background images to top of blog.
+* A User's guide to use this blog more easily.
+
 ## Possible future features
 
 * Tests
-* User's guide
 * Sitemap
 * Override styles more easily
 
