@@ -87,6 +87,7 @@ defmodule MebeWeb.PageController do
       page ->
         conn
         |> insert_config
+        |> assign(:page_type, :page)
         |> assign(:page, page)
         |> render("page.html")
     end

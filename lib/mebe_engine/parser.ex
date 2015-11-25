@@ -67,7 +67,9 @@ defmodule MebeEngine.Parser do
         %Page{
           slug: slug,
           title: headers[:title],
-          content: content
+          content: content,
+          feature_image: headers[:image] || nil,
+          author: default_author_if_not_found(headers)
         }
 
       [_, year, month, day, order, slug] ->
@@ -82,6 +84,7 @@ defmodule MebeEngine.Parser do
           date: date_to_int_tuple({year, month, day}),
           tags: parse_tags(headers[:tags]),
           author: default_author_if_not_found(headers),
+          feature_image: headers[:image] || nil,
           content: content,
           short_content: hd(split_content),
           order: order,

@@ -1,9 +1,12 @@
 <!-- Set your background image for this header on the line below. -->
 <%
-    blog_feature_image = if assigns[:page_type] == :post do
-        if Map.has_key?(@post, :feature_image), do: @post[:feature_image], else: @blog_feature_image
-    else
-        @blog_feature_image
+    blog_feature_image = cond do
+        assigns[:page_type] == :post ->
+            @post.feature_image || @blog_feature_image
+        assigns[:page_type] == :age ->
+            @page.feature_image || @blog_feature_image
+        true ->
+            @blog_feature_image
     end
 %>
 <header class="intro-header" style="background-image: url('<%= static_path(@conn, blog_feature_image) %>')">
@@ -55,6 +58,13 @@
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
                         <span class="meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @post.author %></span>
+                    </div>
+                <% end %>
+
+                <%= if assigns[:page_type] == :page do %>
+                    <div class="post-heading">
+                        <h1><%= @page.title %></h1>
+                        <span class="meta">Posted by <%= @page.author %></span>
                     </div>
                 <% end %>
 

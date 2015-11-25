@@ -18,12 +18,15 @@ defmodule MebeEngine.Models do
       short_content: nil,
       order: 0,
       has_more: false,
-      author: ""
+      author: "",
+      feature_image: nil
   end
 
   defmodule Page do
     defstruct slug: nil,
       title: nil,
-      content: nil
+      content: nil,
+      author: "",
+      feature_image: nil
   end
 end
