@@ -18,23 +18,28 @@ The engine consists of two parts:
 * `npm install && gulp` to build the frontend.
 * `mix phoenix.server` to run the development server.
 
-## Default Features in Mebe
-
-* Blog by just writing Markdown files, no admin UI
-* Automatic yearly, monthly and tag archives
-* Disqus commenting
-* RSS feeds for all posts and for tags
-* Override templates by putting replacements into a directory
-* Expect script for refreshing blog from the command line
-* Splitting of posts so that only the beginning will be shown in a list view or feed
-
 ## Features that I added to GeekPress
 * Default wonderful `Medium-like` theme.
+* Allow multiple authors to contributes
+* Show author information in each post with avatar.
+* Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
 * Add feature background images to top of blog.
 * A User's guide to use this blog more easily.
 
+## Default Features in Mebe
+
+* Blog by just writing Markdown files, no admin UI.
+* Automatic yearly, monthly and tag archives.
+* Disqus commenting.
+* RSS feeds for all posts and for tags.
+* Override templates by putting replacements into a directory.
+* Expect script for refreshing blog from the command line.
+* Splitting of posts so that only the beginning will be shown in a list view or feed.
+
 ## Possible future features
 
+* Author page
+* Social network meta data and sharing for posts
 * Tests
 * Sitemap
 * Override styles more easily
