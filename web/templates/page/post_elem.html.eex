@@ -11,7 +11,7 @@
       <%= @post.title %>
   </h2>
 </a>
-<div class="post-meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @post.author %>
+<div class="post-meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <img class="avatar" src="<%= static_path(@conn, @blog_authors[@post.author].avatar) %>"><%= @post.author %>
     <%= if @post.tags do %>
       <ul class="post-tags">
         <%= for tag <- @post.tags do %>

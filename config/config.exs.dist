@@ -19,9 +19,20 @@ config :mebe_web,
   # The path to crawl post and page data from. No trailing slash, use an absolute path.
   data_path: "/path/to/mebe/data",
 
-  blog_name: "My awesome blog",
-  blog_author: "Author McAuthor",
+  blog_name: "GeekPress",
+  blog_title: "This is my Geek Blog!",
+  blog_headline: "Welcome to my minimalistic awesome blog.",
+  blog_feature_image: "/images/home-bg.jpg",
+
   absolute_url: "http://localhost:4000", # Absolute URL to the site without trailing slash, including protocol
+
+  blog_authors: %{
+    nmqanh: %{
+      full_name: "Nguyen, Manh Quoc Anh",
+      title: "Software Engineer, UX/UI, Self-Entreprenuer",
+      avatar: "/images/avatar.jpg"
+    }
+  },
 
   force_read_more: false, # Force "Read more…" text to display even if there is no more content
 

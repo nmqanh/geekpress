@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="<%= Application.get_env :mebe_web, :blog_author %>">
+    <meta name="author" content="<%= @blog_name %>">
 
     <title><%= title @conn %></title>
 
@@ -111,7 +111,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; <%= @blog_author %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
+                    <p class="copyright text-muted">Copyright &copy; <%= @blog_name %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
                 </div>
             </div>
         </div>

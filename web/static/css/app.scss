@@ -1,7 +1,8 @@
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 $fa-font-path: "../fonts";
 @import "../../../node_modules/font-awesome/scss/font-awesome";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
 @import "variables";
 @import "mixins";
 
@@ -271,6 +272,13 @@ hr.small {
         font-size: 18px;
         font-style: italic;
         margin-top: 0;
+        .avatar {
+            display: inline;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin: -3px 5px 0px 2px;
+        }
         > a {
             text-decoration: none;
             color: $gray-dark;
@@ -514,17 +522,21 @@ body {
     }
 
     .address {
+        display: block;
+        padding-top: 10px;
         > img {
             display: inline;
             width: 64px;
             height: 64px;
             border-radius: 50%;
+            margin-top: -15px;
         }
 
         > p {
             margin: 0 0 0 5px;
             display: inline-block;
-            font-size: 13px;
+            font-size: 0.7em;
+            line-height: 1.5em;
         }
     }
 }

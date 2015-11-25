@@ -6,10 +6,10 @@ defmodule MebeWeb.ControllerUtils do
   """
 
   @blog_name Application.get_env(:mebe_web, :blog_name)
-  @blog_author Application.get_env(:mebe_web, :blog_author)
   @blog_title Application.get_env(:mebe_web, :blog_title)
   @blog_headline Application.get_env(:mebe_web, :blog_headline)
   @blog_feature_image Application.get_env(:mebe_web, :blog_feature_image)
+  @blog_authors Application.get_env(:mebe_web, :blog_authors)
   @absolute_url Application.get_env(:mebe_web, :absolute_url)
   @posts_per_page Application.get_env(:mebe_web, :posts_per_page)
   @disqus_comments Application.get_env(:mebe_web, :disqus_comments)
@@ -17,7 +17,7 @@ defmodule MebeWeb.ControllerUtils do
   @disqus_shortname Application.get_env(:mebe_web, :disqus_shortname)
   @feeds_enabled Application.get_env(:mebe_web, :enable_feeds)
   @force_read_more Application.get_env(:mebe_web, :force_read_more)
-  @blog_authors Application.get_env(:mebe_web, :blog_authors)
+
 
   @doc """
   Render a list of posts with the given template and params. The posts
@@ -36,7 +36,6 @@ defmodule MebeWeb.ControllerUtils do
   def insert_config(conn) do
     conn
     |> assign(:blog_name, @blog_name)
-    |> assign(:blog_author, @blog_author)
     |> assign(:blog_title, @blog_title)
     |> assign(:blog_headline, @blog_headline)
     |> assign(:blog_feature_image, @blog_feature_image)
