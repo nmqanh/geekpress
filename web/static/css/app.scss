@@ -73,6 +73,8 @@ hr.small {
     }
     .nav {
         li {
+            float: left;
+            display: inline-block;
             a {
                 text-transform: uppercase;
                 font-size: 12px;
