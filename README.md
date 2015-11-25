@@ -11,13 +11,6 @@ The engine consists of two parts:
 1. MebeEngine, which handles parsing the data files into an ETS (_Erlang Term Storage_) in-memory database, and
 2. MebeWeb, which uses the Phoenix Framework to serve the blog data to clients.
 
-## Installation for development
-
-* `git clone`
-* Copy `config/*.exs.dist`, removing the `.dist` ending and go through the configs.
-* `npm install && gulp` to build the frontend.
-* `mix phoenix.server` to run the development server.
-
 ## Features that I added to GeekPress
 * Default wonderful `Medium-like` theme.
 * Allow multiple authors to contributes
@@ -25,6 +18,18 @@ The engine consists of two parts:
 * Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
 * Add feature background images to top of blog.
 * A User's guide to use this blog more easily.
+
+## Installation for development
+
+* `git clone`
+* Copy `config/*.exs.dist`, removing the `.dist` ending and go through the configs.
+* `npm install && gulp` to build the frontend.
+* `mix phoenix.server` to run the development server.
+
+## To Do Features
+
+* Author page
+* Social network meta data and sharing for posts
 
 ## Default Features in Mebe
 
@@ -36,13 +41,6 @@ The engine consists of two parts:
 * Expect script for refreshing blog from the command line.
 * Splitting of posts so that only the beginning will be shown in a list view or feed.
 
-## Possible future features
-
-* Author page
-* Social network meta data and sharing for posts
-* Tests
-* Sitemap
-* Override styles more easily
 
 ## Licence
 
