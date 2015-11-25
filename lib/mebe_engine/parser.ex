@@ -44,7 +44,9 @@ defmodule MebeEngine.Parser do
 
   def parse_headers(pageheaders, [header | rest]) do
     [key, val] = split_header(header)
-    parse_headers Dict.put(pageheaders, String.to_atom(key), val), rest
+    key = String.strip(key) |> String.to_atom
+    val = String.strip(val)
+    parse_headers Dict.put(pageheaders, key, val), rest
   end
 
   def parse_headers(pageheaders, []) do
