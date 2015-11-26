@@ -34,9 +34,4 @@ WORKDIR /app
 COPY . /app/
 
 RUN npm install && npm run build
-RUN mix do deps.get, compile
-
-ENV PORT 4000
-EXPOSE 4000
-
-CMD ["mix","phoenix.server"]
+RUN mix do deps.get
