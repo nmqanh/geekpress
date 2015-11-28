@@ -4,7 +4,9 @@
 GeekPress -- _the Beautiful Minimalistic Elixir Blog for Geek_ -- is the simplest and fastest blog for geeks written in [Elixir](https://elixir-lang.org),
 using the [Phoenix Framework](http://www.phoenixframework.org/).
 
-This engine is forked from [Mebe Blog Engine](https://blog.nytsoi.net) and I have been adding some features to make it more useful for my blogging need. I also added the default wonderful theme _Medium-like_ so you can  enjoy your writting without choosing a good theme for it.
+Want to see DEMO IN ACTION? Try my blog [GeekVN](https://geekvn.com).
+
+This engine is forked from [Mebe Blog Engine](https://blog.nytsoi.net/mebe) and I have been adding some features to make it more useful for my blogging need. I also added the default wonderful theme _Medium-like_ so you can enjoy your writting without the need of choosing a good theme for it.
 
 The engine consists of two parts:
 
@@ -12,15 +14,21 @@ The engine consists of two parts:
 2. MebeWeb, which uses the Phoenix Framework to serve the blog data to clients.
 
 ## Features that I added to GeekPress
+
+### Nov 25, 2015
 * Default wonderful `Medium-like` theme.
 * Allow multiple authors to contributes
 * Show author information in each post with avatar.
 * Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
 * Add feature background images to top of blog.
-* A User's guide to use this blog more easily.
+
+### Nov 26, 2015
 * Add a Dockerfile to build images automatically, so you can easily deploy without worring about the source code.
+
+### Nov 28, 2015
 * Add `force_ssl` option in config so you can force always redirect to ssl or not.
-* Add `force_accurate_host` option in config so you can force to redirect to the host in config
+* Add `force_accurate_host` option in config so you can force to redirect to the host in config.
+* Add `blog_favicon` option in config so you can config favicon for your blog.
 
 ## Installation for development
 
@@ -31,8 +39,9 @@ The engine consists of two parts:
 
 ## To Do Features
 
-* Author page
-* Social network meta data and sharing for posts
+* Author pages.
+* Social network meta data and sharing for posts.
+* User guides
 
 ## Default Features in Mebe
 
