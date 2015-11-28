@@ -8,7 +8,7 @@ defmodule MebeWeb.Plugs.ForceRedirect do
   def init(default), do: default
 
   def call(conn, _default) do
-    accurate_host = if @force_accurate_host && @endpoint[:url][:host] != conn.host, do: @endpoint[:url][:host], else: conn.host
+    accurate_host = if @force_accurate_host == true && @endpoint[:url][:host] != conn.host, do: @endpoint[:url][:host], else: conn.host
     query_string = if conn.query_string !== "", do: "?" <> conn.query_string, else: ""
     cond do
       @force_ssl == true  && conn.scheme == :http ->
@@ -17,7 +17,7 @@ defmodule MebeWeb.Plugs.ForceRedirect do
          |> put_status(301)
          |> Phoenix.Controller.redirect(external: new_path)
          |> halt
-      @force_ssl == false && @force_accurate_host == true && accurate_host != conn.host ->
+      @force_accurate_host == true && accurate_host != conn.host ->
         port = if conn.port == 80 || conn.scheme == :https, do: "", else: ":" <> Integer.to_string(conn.port)
         scheme = if conn.scheme == :http, do: "http://", else: "https://"
         new_path = scheme <> accurate_host <> port <> conn.request_path <> query_string
