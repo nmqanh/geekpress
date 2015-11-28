@@ -56,9 +56,12 @@
                           Home
                         </a>
                     </li>
-                    <li>
-                        <a href="<%= page_path @conn, :page, "about" %>">About</a>
-                    </li>
+
+                    <%= for link <- @nav_links do %>
+                        <li>
+                            <a href="<%= link.path %>"><%= link.name %></a>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

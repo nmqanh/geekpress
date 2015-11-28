@@ -20,7 +20,6 @@
                         <span class="subheading"><%= @blog_headline %></span>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :tag do %>
                     <div class="site-heading">
                         <span class="subheading">Viewing posts with tag</span>
@@ -28,7 +27,6 @@
                         <h1 style="text-transform: capitalize;"><%= @tag %></h1>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :year do %>
                     <div class="site-heading">
                         <span class="subheading">Viewing posts for the year</span>
@@ -36,7 +34,6 @@
                         <h1><%= @year %></h1>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :month do %>
                     <% month = String.rjust(Integer.to_string(@month), 2, ?0) %>
                     <div class="site-heading">
@@ -45,7 +42,6 @@
                         <h1><%= @year %>-<%= month %></h1>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :post do %>
                     <% {year, month, day} = @post.date %>
                     <%
@@ -60,14 +56,12 @@
                         <span class="meta">Written on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @blog_authors[@post.author].full_name %></span>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :page do %>
                     <div class="post-heading">
                         <h1><%= @page.title %></h1>
                         <span class="meta">Written by <%= @blog_authors[@page.author].full_name %></span>
                     </div>
                 <% end %>
-
                 <%= if assigns[:page_type] == :not_found do %>
                     <div class="site-heading">
                         <h1>HTTP/1.1 <br/>404 Not Found!</h1>
