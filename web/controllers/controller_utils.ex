@@ -11,6 +11,11 @@ defmodule MebeWeb.ControllerUtils do
   @blog_feature_image Application.get_env(:mebe_web, :blog_feature_image)
   @blog_authors Application.get_env(:mebe_web, :blog_authors)
   @blog_favicon Application.get_env(:mebe_web, :blog_favicon)
+
+  @facebook Application.get_env(:mebe_web, :facebook)
+  @twitter Application.get_env(:mebe_web, :twitter)
+  @github Application.get_env(:mebe_web, :github)
+
   @nav_links Application.get_env(:mebe_web, :nav_links)
   @absolute_url Application.get_env(:mebe_web, :absolute_url)
   @posts_per_page Application.get_env(:mebe_web, :posts_per_page)
@@ -43,6 +48,11 @@ defmodule MebeWeb.ControllerUtils do
     |> assign(:blog_feature_image, @blog_feature_image)
     |> assign(:blog_authors, @blog_authors)
     |> assign(:blog_favicon, @blog_favicon)
+
+    |> assign(:facebook, @facebook)
+    |> assign(:twitter, @twitter)
+    |> assign(:github, @github)
+
     |> assign(:nav_links, @nav_links)
     |> assign(:absolute_url, @absolute_url)
     |> assign(:posts_per_page, @posts_per_page)

@@ -30,6 +30,7 @@ The engine consists of two parts:
 * Add `force_accurate_host` option in config so you can force to redirect to the host in config.
 * Add `blog_favicon` option in config so you can config favicon for your blog.
 * Add `nav_links` option in config so you can config navigation links on top of the blog.
+* Add config for `github`, `facebook`, `twitter` account links at footer of blog.
 
 ## Installation for development
 

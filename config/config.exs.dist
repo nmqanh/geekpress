@@ -25,6 +25,11 @@ config :mebe_web,
   blog_feature_image: "/images/...", # Update the default blog feature image here
   blog_favicon: "/images/...", # Update the blog favicon here
 
+
+  facebook: "", # Your facebook
+  twitter: "", # Your twitter
+  github: "", # Your github
+
   absolute_url: "http://localhost:4000", # Absolute URL to the site without trailing slash, including protocol
 
   # Config for multi-authors in blog, the first author will be the default one.
