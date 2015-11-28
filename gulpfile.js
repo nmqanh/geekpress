@@ -63,6 +63,16 @@ gulp.task('images', function() {
   .pipe(gulp.dest(dest_path + 'images/'));
 });
 
+// Copies images
+gulp.task('build-images', function() {
+  var contents = fs.readFileSync('config/config.exs', 'utf8');
+  var beginStrDataPath = contents.substring(contents.indexOf('data_path'));
+  var dataPath = beginStrDataPath.substring(beginStrDataPath.indexOf('"'), beginStrDataPath.indexOf(','));
+  dataPath = dataPath.replace(new RegExp('"', 'g'), '').trim() + '/images/*';
+  return gulp.src(dataPath)
+  .pipe(gulp.dest(dest_path + 'images/'));
+});
+
 // Copies fonts
 gulp.task('fonts', function() {
   return gulp.src([
@@ -78,7 +88,12 @@ gulp.task('clean', function() {
   .pipe(vinylPaths(del));
 });
 
-gulp.task('default', ['js', 'css', 'images', 'fonts'], function(callback) {
+gulp.task('build-production', ['js', 'css', 'images', 'fonts'], function(callback) {
+  callback();
+  console.log('\nPlaced optimized files in ' + chalk.magenta(dest_path));
+});
+
+gulp.task('default', ['js', 'css', 'images', 'build-images' 'fonts'], function(callback) {
   callback();
   console.log('\nPlaced optimized files in ' + chalk.magenta(dest_path));
 });

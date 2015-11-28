@@ -6,7 +6,8 @@
   "description": "Minimalistic Elixir Blog Engine",
   "private": true,
   "scripts": {
-    "build": "gulp --production"
+    "build": "gulp",
+    "build-production": "gulp build-production --production",
   },
   "devDependencies": {
     "chalk": "^1.0.0",
