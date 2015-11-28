@@ -18,6 +18,8 @@ The engine consists of two parts:
 * Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
 * Add feature background images to top of blog.
 * A User's guide to use this blog more easily.
+* Add a Dockerfile to build images automatically, so you can easily deploy without worring about the source code.
+* Add force_ssl option in config so you can force always redirect to ssl or not.
 
 ## Installation for development
 
