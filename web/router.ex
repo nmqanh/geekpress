@@ -5,8 +5,8 @@ defmodule MebeWeb.Plugs.ForceSSL do
 
   def init(default), do: default
 
-  def call(conn, _default) when @force_ssl == true do
-    if conn.scheme == :http do
+  def call(conn, _default) do
+    if @force_ssl == true  && conn.scheme == :http do
       new_path = "https://" <> conn.host <> conn.request_path <> "?" <> conn.query_string
       conn
        |> put_status(301)
@@ -15,10 +15,6 @@ defmodule MebeWeb.Plugs.ForceSSL do
     else
       conn
     end
-  end
-
-  def call(conn, _default) when @force_ssl == false do
-    conn
   end
 end
 

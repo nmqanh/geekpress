@@ -3,7 +3,7 @@
     blog_feature_image = cond do
         assigns[:page_type] == :post ->
             @post.feature_image || @blog_feature_image
-        assigns[:page_type] == :age ->
+        assigns[:page_type] == :page ->
             @page.feature_image || @blog_feature_image
         true ->
             @blog_feature_image
@@ -57,14 +57,14 @@
                     %>
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
-                        <span class="meta">Posted on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @post.author %></span>
+                        <span class="meta">Written on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <%= @blog_authors[@post.author].full_name %></span>
                     </div>
                 <% end %>
 
                 <%= if assigns[:page_type] == :page do %>
                     <div class="post-heading">
                         <h1><%= @page.title %></h1>
-                        <span class="meta">Posted by <%= @page.author %></span>
+                        <span class="meta">Written by <%= @blog_authors[@page.author].full_name %></span>
                     </div>
                 <% end %>
 

@@ -18,7 +18,7 @@
         <div class="address">
           <img src="<%= static_path(@conn, @blog_authors[@post.author].avatar) %>">
           <p>
-            <strong><%= @blog_authors[@post.author].full_name %></strong>
+            <strong><%= @blog_authors[@post.author].full_name %></strong> (<%= @post.author %>)
             <br />
             <%= @blog_authors[@post.author].title %>
           </p>
