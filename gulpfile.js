@@ -64,7 +64,7 @@ gulp.task('images', function() {
 });
 
 // Copies images
-gulp.task('build-images', function() {
+gulp.task('post-images', function() {
   var contents = fs.readFileSync('config/config.exs', 'utf8');
   var beginStrDataPath = contents.substring(contents.indexOf('data_path'));
   var dataPath = beginStrDataPath.substring(beginStrDataPath.indexOf('"'), beginStrDataPath.indexOf(','));
@@ -88,12 +88,12 @@ gulp.task('clean', function() {
   .pipe(vinylPaths(del));
 });
 
-gulp.task('build-production', ['js', 'css', 'images', 'fonts'], function(callback) {
+gulp.task('build-production', ['js', 'css', 'fonts', 'images'], function(callback) {
   callback();
   console.log('\nPlaced optimized files in ' + chalk.magenta(dest_path));
 });
 
-gulp.task('default', ['js', 'css', 'images', 'build-images' 'fonts'], function(callback) {
+gulp.task('default', ['js', 'css', 'fonts', 'images', 'post-images'], function(callback) {
   callback();
   console.log('\nPlaced optimized files in ' + chalk.magenta(dest_path));
 });

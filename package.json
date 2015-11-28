@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "gulp",
-    "build-production": "gulp build-production --production",
+    "build-production": "gulp build-production --production"
   },
   "devDependencies": {
     "chalk": "^1.0.0",

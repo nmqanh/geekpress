@@ -33,5 +33,5 @@ WORKDIR /app
 
 COPY . /app/
 
-RUN npm install && npm run build
+RUN npm install && npm run build-production
 RUN mix do deps.get
