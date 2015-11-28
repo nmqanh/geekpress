@@ -1,19 +1,33 @@
-defmodule MebeWeb.Plugs.ForceSSL do
+defmodule MebeWeb.Plugs.ForceRedirect do
   import Plug.Conn
 
   @force_ssl Application.get_env(:mebe_web, :force_ssl)
+  @force_accurate_host Application.get_env(:mebe_web, :force_accurate_host)
+  @endpoint Application.get_env :mebe_web, MebeWeb.Endpoint
 
   def init(default), do: default
 
   def call(conn, _default) do
-    if @force_ssl == true  && conn.scheme == :http do
-      new_path = "https://" <> conn.host <> conn.request_path <> "?" <> conn.query_string
-      conn
-       |> put_status(301)
-       |> Phoenix.Controller.redirect(external: new_path)
-       |> halt
-    else
-      conn
+    accurate_host = if @force_accurate_host && @endpoint[:url][:host] != conn.host, do: @endpoint[:url][:host], else: conn.host
+    query_string = if conn.query_string !== "", do: "?" <> conn.query_string, else: ""
+    cond do
+      @force_ssl == true  && conn.scheme == :http ->
+        new_path = "https://" <> accurate_host <> conn.request_path <> query_string
+        conn
+         |> put_status(301)
+         |> Phoenix.Controller.redirect(external: new_path)
+         |> halt
+      @force_ssl == false && @force_accurate_host == true && accurate_host != conn.host ->
+        port = if conn.port == 80 || conn.scheme == :https, do: "", else: ":" <> Integer.to_string(conn.port)
+        scheme = if conn.scheme == :http, do: "http://", else: "https://"
+        new_path = scheme <> accurate_host <> port <> conn.request_path <> query_string
+        conn
+         |> put_status(301)
+         |> Phoenix.Controller.redirect(external: new_path)
+         |> halt
+
+      true ->
+        conn
     end
   end
 end
@@ -25,7 +39,7 @@ defmodule MebeWeb.Router do
 
   pipeline :browser do
     plug MebeWeb.RequestStartTimePlug
-    plug MebeWeb.Plugs.ForceSSL
+    plug MebeWeb.Plugs.ForceRedirect
     plug :accepts, ["html", "xml"]
     plug :fetch_session
     plug :fetch_flash

@@ -19,7 +19,8 @@ The engine consists of two parts:
 * Add feature background images to top of blog.
 * A User's guide to use this blog more easily.
 * Add a Dockerfile to build images automatically, so you can easily deploy without worring about the source code.
-* Add force_ssl option in config so you can force always redirect to ssl or not.
+* Add `force_ssl` option in config so you can force always redirect to ssl or not.
+* Add `force_accurate_host` option in config so you can force to redirect to the host in config
 
 ## Installation for development
 

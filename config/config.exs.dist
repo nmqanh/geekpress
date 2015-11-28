@@ -35,6 +35,8 @@ config :mebe_web,
   },
 
   force_read_more: false, # Force "Read more…" text to display even if there is no more content
+  force_ssl: false, # Force SSL Redirect when accessing the page without SSL
+  force_accurate_host: false, # Force the requesting url to match the config host. If not match then redirect.
 
   enable_feeds: false, # Set to true to enable RSS feeds
   feeds_full_content: false, # Show full content in feeds instead of short content
