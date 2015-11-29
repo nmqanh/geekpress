@@ -115,6 +115,9 @@ hr.small {
                 display: block;
                 width: 100%;
                 border-bottom: 1px solid #e7e7e7;
+                a {
+                    width: 100%;
+                }
             }
             li:last-child {
                 border: none;
