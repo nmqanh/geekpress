@@ -32,6 +32,10 @@ The engine consists of two parts:
 * Add `nav_links` option in config so you can config navigation links on top of the blog.
 * Add config for `github`, `facebook`, `twitter` account links at footer of blog.
 
+### Nov 29, 2015
+* Add `description` header for posts and pages markdown.
+* Add Social network Open Graph meta data.
+
 ## Installation for development
 
 * `git clone`
@@ -42,7 +46,7 @@ The engine consists of two parts:
 ## To Do Features
 
 * Author pages.
-* Social network meta data and sharing for posts.
+* Sharing for posts.
 * User guides
 
 ## Default Features in Mebe

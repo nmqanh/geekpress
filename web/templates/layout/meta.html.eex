@@ -1,0 +1,35 @@
+<%
+ cond do
+    assigns[:page_type] == :post ->
+      blog_feature_image = @post.feature_image || @blog_feature_image
+      title =@post.title
+      description = @post.description
+    assigns[:page_type] == :page ->
+      blog_feature_image = @page.feature_image || @blog_feature_image
+      title =@page.title
+      description = @page.description
+    assigns[:page_type] == :tag ->
+      blog_feature_image = @blog_feature_image
+      title = "Viewing posts with tag " <> @tag
+      description = @blog_title
+    assigns[:page_type] == :year ->
+      blog_feature_image = @blog_feature_image
+      title = "Viewing posts for the year " <> @year
+      description = @blog_title
+    assigns[:page_type] == :month ->
+      month = String.rjust(Integer.to_string(@month), 2, ?0)
+      blog_feature_image = @blog_feature_image
+      title = "Viewing posts for the month" <> @year <> "-" <> month
+      description = @blog_title
+    true ->
+      blog_feature_image = @blog_feature_image
+      title = @blog_title
+      description = @blog_headline
+  end
+%>
+
+<meta property="og:title" content="<%= title %>"/>
+<meta property="og:image" content="<%= static_url(@conn, blog_feature_image) %>"/>
+<meta property="og:image:secure_url" content="<%= static_url(@conn, blog_feature_image) %>"/>
+<meta property="og:description" content="<%= description %>"/>
+<meta name="description" content="<%= description %>">

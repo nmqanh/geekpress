@@ -12,6 +12,7 @@ defmodule MebeEngine.Models do
   defmodule Post do
     defstruct slug: nil,
       title: nil,
+      description: nil,
       date: nil,
       tags: [],
       content: nil,
@@ -25,6 +26,7 @@ defmodule MebeEngine.Models do
   defmodule Page do
     defstruct slug: nil,
       title: nil,
+      description: nil,
       content: nil,
       author: "",
       feature_image: nil

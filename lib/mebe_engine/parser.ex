@@ -67,6 +67,7 @@ defmodule MebeEngine.Parser do
         %Page{
           slug: slug,
           title: headers[:title],
+          description: headers[:description] || '',
           content: content,
           feature_image: headers[:image] || nil,
           author: default_author_if_not_found(headers)
@@ -81,6 +82,7 @@ defmodule MebeEngine.Parser do
         %Post{
           slug: slug,
           title: headers[:title],
+          description: headers[:description] || '',
           date: date_to_int_tuple({year, month, day}),
           tags: parse_tags(headers[:tags]),
           author: default_author_if_not_found(headers),
