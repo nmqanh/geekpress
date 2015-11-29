@@ -129,6 +129,16 @@
                                 </span>
                             </a>
                         </li>
+                        <%= if @feeds_enabled do %>
+                        <li>
+                            <a href="<%= feed_url @conn, :index %>" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-feed fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <% end %>
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; <%= @blog_name %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
                 </div>

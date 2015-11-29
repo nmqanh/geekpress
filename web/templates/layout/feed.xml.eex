@@ -1,9 +1,9 @@
 <rss version="2.0">
   <channel>
-    <title><%= title @conn %></title>
+    <title><%= @blog_title %></title>
     <link><%= url(@conn) %></link>
-    <description></description>
-    <generator>Mebe</generator>
+    <description><%= @blog_headline %></description>
+    <generator><%= @blog_name %></generator>
 
     <%= @inner %>
   </channel>
