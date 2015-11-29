@@ -30,8 +30,6 @@ config :mebe_web,
   twitter: "", # Your twitter
   github: "", # Your github
 
-  absolute_url: "http://localhost:4000", # Absolute URL to the site without trailing slash, including protocol
-
   # Config for multi-authors in blog, the first author will be the default one.
   blog_authors: %{
     nmqanh: %{

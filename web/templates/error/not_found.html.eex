@@ -4,6 +4,6 @@
   </p>
 
   <p>
-    <a href="<%= home_url %>">Go away</a>.
+    <a href="<%= url(@conn) %>">Go away</a>.
   </p>
 </div>

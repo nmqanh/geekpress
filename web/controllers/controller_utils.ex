@@ -17,7 +17,6 @@ defmodule MebeWeb.ControllerUtils do
   @github Application.get_env(:mebe_web, :github)
 
   @nav_links Application.get_env(:mebe_web, :nav_links)
-  @absolute_url Application.get_env(:mebe_web, :absolute_url)
   @posts_per_page Application.get_env(:mebe_web, :posts_per_page)
   @disqus_comments Application.get_env(:mebe_web, :disqus_comments)
   @page_commenting Application.get_env(:mebe_web, :page_commenting)
@@ -54,7 +53,6 @@ defmodule MebeWeb.ControllerUtils do
     |> assign(:github, @github)
 
     |> assign(:nav_links, @nav_links)
-    |> assign(:absolute_url, @absolute_url)
     |> assign(:posts_per_page, @posts_per_page)
     |> assign(:disqus_comments, @disqus_comments)
     |> assign(:page_commenting, @page_commenting)

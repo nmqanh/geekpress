@@ -23,8 +23,8 @@
     <title>
       <![CDATA[<%= post.title %>]]>
     </title>
-    <link><%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %></link>
-    <guid><%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %></guid>
+    <link><%= page_url @conn, :post, year, j_month, j_day, post.slug %></link>
+    <guid><%= page_url @conn, :post, year, j_month, j_day, post.slug %></guid>
     <description>
       <![CDATA[
 
@@ -34,7 +34,7 @@
         <%= post.short_content %>
       <% end %>
 
-      <a href="<%= @absolute_url %><%= page_path @conn, :post, year, j_month, j_day, post.slug %>">
+      <a href="<%= page_url @conn, :post, year, j_month, j_day, post.slug %>">
         Read more…
       </a>
 

@@ -1,8 +1,6 @@
 defmodule MebeWeb.ErrorView do
   use MebeWeb.Web, :view
 
-  @absolute_url Application.get_env(:mebe_web, :absolute_url)
-
   def render("404.html", %{conn: conn}) do
     render "not_found.html", %{conn: conn}
   end
@@ -16,9 +14,4 @@ defmodule MebeWeb.ErrorView do
   def template_not_found(_template, assigns) do
     render "500.html", assigns
   end
-
-  @doc """
-  Get the home page URL of the site.
-  """
-  def home_url(), do: @absolute_url
 end
