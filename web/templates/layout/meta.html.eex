@@ -14,12 +14,12 @@
       description = @blog_title
     assigns[:page_type] == :year ->
       blog_feature_image = @blog_feature_image
-      title = "Viewing posts for the year " <> @year
+      title = "Viewing posts for the year " <> Integer.to_string(@year)
       description = @blog_title
     assigns[:page_type] == :month ->
       month = String.rjust(Integer.to_string(@month), 2, ?0)
       blog_feature_image = @blog_feature_image
-      title = "Viewing posts for the month" <> @year <> "-" <> month
+      title = "Viewing posts for the month" <> Integer.to_string(@year) <> "-" <> month
       description = @blog_title
     true ->
       blog_feature_image = @blog_feature_image
