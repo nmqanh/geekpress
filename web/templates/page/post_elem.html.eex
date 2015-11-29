@@ -24,7 +24,6 @@
       </ul>
     <% end %>
 </div>
-
 <div class="content">
   <%= raw @post.short_content %>
   <%= if @force_read_more or @post.has_more do %>

@@ -59,7 +59,7 @@
 
                     <%= for link <- @nav_links do %>
                         <li>
-                            <a href="<%= link.path %>"><%= link.name %></a>
+                            <a href="<%= link.path %>" class="navbar-brand"><%= link.name %></a>
                         </li>
                     <% end %>
                 </ul>

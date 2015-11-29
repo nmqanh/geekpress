@@ -107,6 +107,20 @@ hr.small {
             }
         }
     }
+    @media only screen and (max-width: 767px) {
+        .nav {
+            margin: 0px -15px;
+            li {
+                padding-top: 10px;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #e7e7e7;
+            }
+            li:last-child {
+                border: none;
+            }
+        }
+    }
     @media only screen and (min-width: 1170px) {
         -webkit-transition: background-color 0.3s;
         -moz-transition: background-color 0.3s;
