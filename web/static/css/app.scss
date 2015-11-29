@@ -556,3 +556,15 @@ body {
         }
     }
 }
+
+.social {
+    margin-top: 25px;
+    .item {
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
+
+.fb-like.fb_iframe_widget span, .twitter-share-button {
+    vertical-align: top !important;
+}

@@ -35,6 +35,7 @@ The engine consists of two parts:
 ### Nov 29, 2015
 * Add `description` header for posts and pages markdown.
 * Add Social network Open Graph meta data.
+* Add Social Buttons: HackerNews, Twitter and Facebook, you can now share posts and pages!
 
 ## Installation for development
 
@@ -46,7 +47,6 @@ The engine consists of two parts:
 ## To Do Features
 
 * Author pages.
-* Sharing for posts.
 * User guides
 
 ## Default Features in Mebe
