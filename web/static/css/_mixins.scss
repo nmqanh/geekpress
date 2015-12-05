@@ -16,3 +16,7 @@
 @mixin sans-serif {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+@mixin noticia-text {
+  font-family: 'Noticia Text', serif;
+}

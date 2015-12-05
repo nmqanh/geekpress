@@ -15,6 +15,7 @@ defmodule MebeWeb.ControllerUtils do
   @facebook Application.get_env(:mebe_web, :facebook)
   @twitter Application.get_env(:mebe_web, :twitter)
   @github Application.get_env(:mebe_web, :github)
+  @email Application.get_env(:mebe_web, :email)
 
   @nav_links Application.get_env(:mebe_web, :nav_links)
   @posts_per_page Application.get_env(:mebe_web, :posts_per_page)
@@ -51,6 +52,7 @@ defmodule MebeWeb.ControllerUtils do
     |> assign(:facebook, @facebook)
     |> assign(:twitter, @twitter)
     |> assign(:github, @github)
+    |> assign(:email, @email)
 
     |> assign(:nav_links, @nav_links)
     |> assign(:posts_per_page, @posts_per_page)

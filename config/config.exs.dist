@@ -29,6 +29,7 @@ config :mebe_web,
   facebook: "", # Your facebook
   twitter: "", # Your twitter
   github: "", # Your github
+  email: "", # Your email
 
   # Config for multi-authors in blog, the first author will be the default one.
   blog_authors: %{

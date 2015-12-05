@@ -15,15 +15,13 @@ The engine consists of two parts:
 
 ## Features that I added to GeekPress
 
-### Nov 25, 2015
-* Default wonderful `Medium-like` theme.
-* Allow multiple authors to contributes
-* Show author information in each post with avatar.
-* Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
-* Add feature background images to top of blog.
+### Dec 5, 2015
+* Add email, feed to footer.
 
-### Nov 26, 2015
-* Add a Dockerfile to build images automatically, so you can easily deploy without worring about the source code.
+### Nov 29, 2015
+* Add `description` header for posts and pages markdown.
+* Add Social network Open Graph meta data.
+* Add Social Buttons: HackerNews, Twitter and Facebook, you can now share posts and pages!
 
 ### Nov 28, 2015
 * Add `force_ssl` option in config so you can force always redirect to ssl or not.
@@ -32,10 +30,15 @@ The engine consists of two parts:
 * Add `nav_links` option in config so you can config navigation links on top of the blog.
 * Add config for `github`, `facebook`, `twitter` account links at footer of blog.
 
-### Nov 29, 2015
-* Add `description` header for posts and pages markdown.
-* Add Social network Open Graph meta data.
-* Add Social Buttons: HackerNews, Twitter and Facebook, you can now share posts and pages!
+### Nov 26, 2015
+* Add a Dockerfile to build images automatically, so you can easily deploy without worring about the source code.
+
+### Nov 25, 2015
+* Default wonderful `Medium-like` theme.
+* Allow multiple authors to contributes
+* Show author information in each post with avatar.
+* Change the structure of markdown parser to be like Yaml format like [Octopress](http://octopress.org/docs/blogging/).
+* Add feature background images to top of blog.
 
 ## Installation for development
 

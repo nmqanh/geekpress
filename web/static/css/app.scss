@@ -30,6 +30,7 @@ h3,
 h4,
 h5,
 h6 {
+    @include sans-serif;
     font-weight: 800;
 }
 
@@ -63,6 +64,7 @@ hr.small {
 // Navigation
 
 .navbar-custom {
+    @include sans-serif;
     position: absolute;
     top: 0;
     left: 0;
@@ -201,6 +203,7 @@ hr.small {
             font-size: 50px;
         }
         .subheading {
+            @include sans-serif;
             font-size: 24px;
             line-height: 1.1;
             display: block;
@@ -223,6 +226,7 @@ hr.small {
             display: block;
         }
         .subheading {
+            @include sans-serif;
             font-size: 24px;
             margin: -6px 0 30px;
             font-weight: 600;
@@ -250,6 +254,7 @@ hr.small {
 
 .post-preview {
     .content {
+        @include noticia-text;
         h1, .h1 {
           font-size: 28px; }
 
@@ -412,6 +417,7 @@ form .row:first-child .floating-label-form-group {
 // Button Styles
 
 .btn {
+    @include sans-serif;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 800;
@@ -443,6 +449,7 @@ form .row:first-child .floating-label-form-group {
     li {
         > a,
         > span {
+            @include sans-serif;
             text-transform: uppercase;
             font-size: 14px;
             font-weight: 800;
@@ -502,6 +509,7 @@ body {
 
 
 .post-tags {
+    @include sans-serif;
     display: block;
     padding-left: 0;
     li {
@@ -530,6 +538,13 @@ body {
 }
 
 .post-content {
+    @include noticia-text;
+    li {
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
     .post-tags {
         li {
             a {
@@ -541,6 +556,7 @@ body {
     }
 
     .address {
+        @include sans-serif;
         display: block;
         padding-top: 10px;
         > img {
