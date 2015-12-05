@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="<%= @blog_name %>">
     <meta property="og:url" content="<%= url(@conn) <> @conn.request_path %>"/>
     <meta property="og:type" content="website"/>
+    <meta property="fb:app_id" content="<%= @facebook_appid %>" />
+
     <!-- OpenGraph Meta -->
     <%= render "meta.html", assigns %>
     <meta property="og:site_name" content="<%= @blog_name %>"/>
@@ -49,10 +50,9 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=<%= @facebook_appid %>";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">

@@ -31,6 +31,8 @@ config :mebe_web,
   github: "", # Your github
   email: "", # Your email
 
+  facebook_appid: "187936581309174", # Your facebook app_id
+
   # Config for multi-authors in blog, the first author will be the default one.
   blog_authors: %{
     nmqanh: %{

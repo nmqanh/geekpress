@@ -17,6 +17,7 @@ The engine consists of two parts:
 
 ### Dec 5, 2015
 * Add email, feed to footer.
+* Add option facebook_appid.
 
 ### Nov 29, 2015
 * Add `description` header for posts and pages markdown.
