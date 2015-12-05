@@ -148,7 +148,10 @@
                         </li>
                         <% end %>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; <%= @blog_name %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
+                    <p class="copyright text-muted">
+                    Copyright &copy; <%= @blog_name %> 2015 - <% {time, unit} = request_time @conn %> Rendered in <%= time |> safe_round |> trunc %>&nbsp;<%= unit%>
+                    <br/> Powered by <a target="_blank" href="http://elixir-lang.org">Elixir</a> and <a target="_blank" href="http://www.phoenixframework.org">Phoenix</a>
+                    </p>
                 </div>
             </div>
         </div>
