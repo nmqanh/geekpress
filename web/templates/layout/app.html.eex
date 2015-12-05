@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="<%= @blog_name %>">
-
     <meta property="og:url" content="<%= url(@conn) <> @conn.request_path %>"/>
     <meta property="og:type" content="website"/>
     <!-- OpenGraph Meta -->
@@ -77,11 +76,10 @@
                           Home
                         </a>
                     </li>
-
                     <%= for link <- @nav_links do %>
-                        <li>
-                            <a href="<%= link.path %>" class="navbar-brand"><%= link.name %></a>
-                        </li>
+                    <li>
+                        <a href="<%= link.path %>" class="navbar-brand"><%= link.name %></a>
+                    </li>
                     <% end %>
                 </ul>
             </div>
@@ -109,7 +107,7 @@
                             <a href="https://www.facebook.com/<%= @facebook %>" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
@@ -117,7 +115,7 @@
                             <a href="https://twitter.com/<%= @twitter %>" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
@@ -146,10 +144,9 @@
         </div>
     </footer>
 
-    <!-- javascripts -->
+    <!-- Javascripts -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <%= raw extra_html %>
 </body>
-
 </html>
 
