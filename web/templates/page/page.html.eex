@@ -4,15 +4,6 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <%= raw @page.content %>
-          <hr />
-          <div class="address">
-            <img src="<%= static_path(@conn, @blog_authors[@page.author].avatar) %>">
-            <p>
-              <strong><%= @blog_authors[@page.author].full_name %></strong> (<%= @page.author %>)
-              <br />
-              <%= @blog_authors[@page.author].title %>
-            </p>
-          </div>
 
           <div class="social">
             <div class="item">
@@ -26,6 +17,15 @@
             </div>
           </div>
 
+          <hr />
+          <div class="address">
+            <img src="<%= static_path(@conn, @blog_authors[@page.author].avatar) %>">
+            <p>
+              <strong><%= @blog_authors[@page.author].full_name %></strong> (<%= @page.author %>)
+              <br />
+              <%= @blog_authors[@page.author].title %>
+            </p>
+          </div>
           <hr />
           <%= if @disqus_comments and @page_commenting do %>
             <div id="disqus_thread"></div>
