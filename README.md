@@ -15,6 +15,12 @@ The engine consists of two parts:
 
 ## Features that I added to GeekPress
 
+### June 11, 2016
+* Upgrade to use Elixir 1.2 and Phoenix 1.1.6
+* Upgrade to latest npm packages.
+* Upgrade to latest Hex packages.
+* Add Style to support showing Tables
+
 ### Dec 5, 2015
 * Add email, feed to footer.
 * Add option facebook_appid.
