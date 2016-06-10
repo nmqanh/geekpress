@@ -6,7 +6,7 @@ var gulp = require('gulp'), concat = require('gulp-concat'),
   replace = require('gulp-replace'), uglify = require('gulp-uglify');
 
 // Gulp minify for smallinizing our CSS
-var minify = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 
 // Gulp filesize for printing sizes before and after minification
 var size = require('gulp-size');
@@ -51,7 +51,7 @@ gulp.task('css', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
     .pipe(size({title: 'Compiled CSS'}))
-    .pipe(minify())
+    .pipe(cleanCSS())
     .pipe(size({title: 'Minified CSS'}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(dest_path + 'css/'));

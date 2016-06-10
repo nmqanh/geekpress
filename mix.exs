@@ -2,16 +2,18 @@ defmodule MebeWeb.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :mebe_web,
-     version: "1.0.0",
-     deps_path: "deps",
-     lockfile: "mix.lock",
-     elixir: "~> 1.1.0",
-     elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :mebe_web,
+      version: "1.0.0",
+      deps_path: "deps",
+      lockfile: "mix.lock",
+      elixir: ">= 1.1.0 and < 1.3.0",
+      elixirc_paths: elixirc_paths(Mix.env),
+      compilers: [:phoenix] ++ Mix.compilers,
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps
+    ]
   end
 
   # Configuration for the OTP application
@@ -31,11 +33,11 @@ defmodule MebeWeb.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, "~> 1.0"},
+      {:phoenix, "~> 1.1"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_html, "~> 2.2"},
+      {:phoenix_html, "~> 2.5"},
       {:cowboy, "~> 1.0"},
-      {:earmark, "~> 0.1.16"}
-   ]
+      {:earmark, "~> 0.2"}
+    ]
   end
 end

@@ -19,11 +19,11 @@ config :mebe_web,
   # The path to crawl post and page data from. No trailing slash, use an absolute path.
   data_path: "/path/to/blog/data",
 
-  blog_name: "GeekPress...", # Update your blog name here
-  blog_title: "This is my Geek Blog!...", # Update your blog title here
-  blog_headline: "Welcome to my minimalistic awesome blog...", # Update your blog headline here
-  blog_feature_image: "/images/...", # Update the default blog feature image here
-  blog_favicon: "/images/...", # Update the blog favicon here
+  blog_name: "GeekPress", # Update your blog name here
+  blog_title: "This is my awesome Geek Blog!", # Update your blog title here
+  blog_headline: "Welcome to my minimalistic awesome blog built on Elixir and Phoenix", # Update your blog headline here
+  blog_feature_image: "/images/default.png", # Update the default blog feature image here
+  blog_favicon: "/images/default.ico", # Update the blog favicon here
 
 
   facebook: "", # Your facebook
@@ -31,14 +31,14 @@ config :mebe_web,
   github: "", # Your github
   email: "", # Your email
 
-  facebook_appid: "187936581309174", # Your facebook app_id
+  facebook_appid: "", # Your facebook app_id
 
   # Config for multi-authors in blog, the first author will be the default one.
   blog_authors: %{
     nmqanh: %{
-      full_name: "Nguyen, Manh Quoc Anh",
-      title: "Software Engineer, UX/UI, Self-Entrepreneur",
-      avatar: "/images/nmqanh.jpg"
+      full_name: "My Name",
+      title: "My Title",
+      avatar: "/images/avatar.jpg"
     }
   },
 
@@ -63,7 +63,7 @@ config :mebe_web,
   # Disqus comments
   disqus_comments: false, # Use Disqus comments
   page_commenting: false, # Show comments for pages too
-  disqus_shortname: "my-awesome-blog",
+  disqus_shortname: "my-disqus-short-name",
 
   # Extra HTML that is injected to every page, right before </body>. Useful for analytics scripts.
   extra_html: """

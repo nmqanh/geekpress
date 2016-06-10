@@ -5,6 +5,6 @@
     <description><%= @blog_headline %></description>
     <generator><%= @blog_name %></generator>
 
-    <%= @inner %>
+    <%= render @view_module, @view_template, assigns %>
   </channel>
 </rss>

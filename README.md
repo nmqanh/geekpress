@@ -45,7 +45,8 @@ The engine consists of two parts:
 
 * `git clone`
 * Copy `config/*.exs.dist`, removing the `.dist` ending and go through the configs.
-* `npm install && gulp` to build the frontend.
+* `npm install && npm run build` to build the frontend for development.
+* `mix deps.get` to install hex packages.
 * `mix phoenix.server` to run the development server.
 
 ## To Do Features
