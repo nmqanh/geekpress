@@ -1,37 +1,47 @@
 <%
- cond do
-    assigns[:page_type] == :post ->
-      blog_feature_image = @post.feature_image || @blog_feature_image
-      title = @post.title
-      author = @blog_authors[@post.author].full_name
-      description = @post.description
-    assigns[:page_type] == :page ->
-      blog_feature_image = @page.feature_image || @blog_feature_image
-      title =@page.title
-      author = @blog_authors[@page.author].full_name
-      description = @page.description
-    assigns[:page_type] == :tag ->
-      blog_feature_image = @blog_feature_image
-      title = "Viewing posts with tag " <> @tag
-      author = @blog_name
-      description = @blog_title
-    assigns[:page_type] == :year ->
-      blog_feature_image = @blog_feature_image
-      title = "Viewing posts for the year " <> Integer.to_string(@year)
-      author = @blog_name
-      description = @blog_title
-    assigns[:page_type] == :month ->
-      month = String.rjust(Integer.to_string(@month), 2, ?0)
-      blog_feature_image = @blog_feature_image
-      title = "Viewing posts for the month" <> Integer.to_string(@year) <> "-" <> month
-      author = @blog_name
-      description = @blog_title
-    true ->
-      blog_feature_image = @blog_feature_image
-      title = @blog_title
-      author = @blog_name
-      description = @blog_headline
+  if assigns[:page_type] == :month do
+    month = String.rjust(Integer.to_string(@month), 2, ?0)
   end
+
+  blog_feature_image =
+    case assigns[:page_type] do
+      :post  -> @post.feature_image || @blog_feature_image
+      :page  -> @page.feature_image || @blog_feature_image
+      :tag   -> @blog_feature_image
+      :year  -> @blog_feature_image
+      :month -> @blog_feature_image
+      _      -> @blog_feature_image
+    end
+
+  title =
+    case assigns[:page_type] do
+      :post  -> @post.title
+      :page  -> @page.title
+      :tag   -> "Viewing posts with tag " <> @tag
+      :year  -> "Viewing posts for the year " <> Integer.to_string(@year)
+      :month -> "Viewing posts for the month" <> Integer.to_string(@year) <> "-" <> month
+      _      -> @blog_title
+    end
+
+  author =
+    case assigns[:page_type] do
+      :post  -> @blog_authors[@post.author].full_name
+      :page  -> @blog_authors[@page.author].full_name
+      :tag   -> @blog_name
+      :year  -> @blog_name
+      :month -> @blog_name
+      _      -> @blog_name
+    end
+
+  description =
+    case assigns[:page_type] do
+      :post  -> @post.description
+      :page  -> @page.description
+      :tag   -> @blog_title
+      :year  -> @blog_title
+      :month -> @blog_title
+      _      -> @blog_headline
+    end
 %>
 
 <meta name="author" content="<%= author %>">
