@@ -47,6 +47,5 @@
 <meta name="author" content="<%= author %>">
 <meta property="og:title" content="<%= title %>"/>
 <meta property="og:image" content="<%= static_url(@conn, blog_feature_image) %>"/>
-<meta property="og:image:secure_url" content="<%= static_url(@conn, blog_feature_image) %>"/>
 <meta property="og:description" content="<%= description %>"/>
 <meta name="description" content="<%= description %>">
