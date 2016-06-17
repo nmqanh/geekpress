@@ -34,5 +34,5 @@ WORKDIR /app
 COPY . /app/
 
 RUN npm install && npm run build-production
-RUN mix local.hex
+RUN mix local.hex --force
 RUN mix do deps.get
