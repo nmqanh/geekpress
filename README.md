@@ -4,7 +4,7 @@
 GeekPress -- _the Beautiful Minimalistic Elixir Blog for Geek_ -- is the simplest and fastest blog for geeks written in [Elixir](https://elixir-lang.org),
 using the [Phoenix Framework](http://www.phoenixframework.org/).
 
-Want to see DEMO IN ACTION? Try my blog [GeekVN](https://geekvn.com).
+Want to see DEMO IN ACTION? Try my blog [CafewithMe](https://cafewith.me).
 
 This engine is forked from [Mebe Blog Engine](https://blog.nytsoi.net/mebe) and I have been adding some features to make it more useful for my blogging need. I also added the default wonderful theme _Medium-like_ so you can enjoy your writting without the need of choosing a good theme for it.
 

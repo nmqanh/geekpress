@@ -18,6 +18,7 @@ config :mebe_web, MebeWeb.Endpoint,
 #
 #  config:mebe_web, MebeWeb.Endpoint,
 #    ...
+#    static_url: [scheme: "https", host: "example.com", port: 443],
 #    https: [port: 443,
 #            keyfile: System.get_env("APP_SSL_KEY_PATH"),
 #            certfile: System.get_env("APP_SSL_CERT_PATH")]
