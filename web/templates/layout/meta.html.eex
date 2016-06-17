@@ -1,8 +1,4 @@
 <%
-  if assigns[:page_type] == :month do
-    month = String.rjust(Integer.to_string(@month), 2, ?0)
-  end
-
   blog_feature_image =
     case assigns[:page_type] do
       :post  -> @post.feature_image || @blog_feature_image
@@ -19,7 +15,7 @@
       :page  -> @page.title
       :tag   -> "Viewing posts with tag " <> @tag
       :year  -> "Viewing posts for the year " <> Integer.to_string(@year)
-      :month -> "Viewing posts for the month" <> Integer.to_string(@year) <> "-" <> month
+      :month -> "Viewing posts for the month" <> Integer.to_string(@year) <> "-" <> String.rjust(Integer.to_string(@month), 2, ?0)
       _      -> @blog_title
     end
 
