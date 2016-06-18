@@ -17,6 +17,7 @@ defmodule MebeEngine.Worker do
   def init(:ok) do
     load_db
     if Mix.env == :dev do
+      System.cmd "ln", ["-s", @data_path <> "/images", "./priv/static/images"]
       :fs.start_link(:fs_watcher, @data_path)
       :fs.subscribe(:fs_watcher)
     end
