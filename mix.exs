@@ -37,7 +37,8 @@ defmodule MebeWeb.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_html, "~> 2.5"},
       {:cowboy, "~> 1.0"},
-      {:earmark, "~> 0.2"}
+      {:earmark, "~> 0.2"},
+      {:fs, git: "https://github.com/synrc/fs", only: :dev, override: true}
     ]
   end
 end

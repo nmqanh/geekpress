@@ -8,7 +8,6 @@ defmodule MebeWeb do
 
     children = [
       worker(MebeEngine.Worker, [[name: MebeEngine.worker_name]]),
-
       # Start the endpoint when the application starts
       supervisor(MebeWeb.Endpoint, [])
     ]

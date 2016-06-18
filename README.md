@@ -15,6 +15,9 @@ The engine consists of two parts:
 
 ## Features that I added to GeekPress
 
+### June 19, 2016
+* Add Auto Reload Posts without restarting the server manually when saving posts.
+
 ### June 11, 2016
 * Upgrade to use Elixir 1.2 and Phoenix 1.1.6
 * Upgrade to latest npm packages.

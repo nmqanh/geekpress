@@ -16,7 +16,17 @@ defmodule MebeEngine.Worker do
 
   def init(:ok) do
     load_db
+    if Mix.env == :dev do
+      :fs.start_link(:fs_watcher, @data_path)
+      :fs.subscribe(:fs_watcher)
+    end
     {:ok, nil}
+  end
+
+  def handle_info({_pid, {:fs, :file_event}, {path, _event}}, socket) do
+    Logger.info "Folder Changed Detected! Reloading..."
+    refresh_db
+    {:noreply, socket}
   end
 
   def handle_call(:refresh, _from, nil) do
