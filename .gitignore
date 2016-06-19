@@ -2,12 +2,12 @@
 /deps
 erl_crash.dump
 *.ez
-config.exs
+
 
 /data
 
 # Configs
-config/*.exs
+/config
 
 # Static artifacts
 /node_modules
