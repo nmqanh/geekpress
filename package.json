@@ -9,7 +9,6 @@
     "link-config": "ln -fs $BLOG_PATH/config ./",
     "build-dev": "gulp",
     "dev": "npm run build-dev && npm run link-config && mix phoenix.server",
-    "prod": "npm run link-config && MIX_ENV=prod mix phoenix.server",
     "build-production": "gulp build-production --production"
   },
   "devDependencies": {
