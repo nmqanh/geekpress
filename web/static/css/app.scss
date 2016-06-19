@@ -24,6 +24,17 @@ p {
     }
 }
 
+figcaption {
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 2em;
+    font-style: italic;
+}
+
+figure.thumbnail {
+    border: none;
+}
+
 h1,
 h2,
 h3,
@@ -184,8 +195,19 @@ hr.small {
     background: no-repeat center center;
     background-attachment: scroll;
     @include background-cover;
+    position: relative;
     // NOTE: Background images are set within the HTML using inline CSS!
     margin-bottom: 25px;
+    .background-wrapper {
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
     .site-heading,
     .post-heading,
     .page-heading {
