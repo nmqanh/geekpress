@@ -8,7 +8,7 @@ defmodule MebeEngine.Worker do
   alias MebeEngine.Crawler
   alias MebeEngine.DB
 
-  @data_path Application.get_env(:mebe_web, :data_path)
+  @data_path System.get_env("BLOG_PATH")
 
   def start_link(opts \\ []) do
     GenServer.start_link(__MODULE__, :ok, opts)

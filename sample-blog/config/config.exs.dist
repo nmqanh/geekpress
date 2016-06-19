@@ -7,18 +7,13 @@ use Mix.Config
 
 # Configures the endpoint
 config :mebe_web, MebeWeb.Endpoint,
-  url: [host: "localhost"],
   root: Path.expand("..", __DIR__),
-  secret_key_base: "SECRET",
   debug_errors: false,
   pubsub: [name: MebeWeb.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Custom blog configs
 config :mebe_web,
-  # The path to crawl post and page data from. No trailing slash, use an absolute path.
-  data_path: "/path/to/blog/data",
-
   blog_name: "GeekPress", # Update your blog name here
   blog_title: "This is my awesome Geek Blog!", # Update your blog title here
   blog_headline: "Welcome to my minimalistic awesome blog built on Elixir and Phoenix", # Update your blog headline here
