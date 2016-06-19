@@ -6,9 +6,9 @@
   "description": "Minimalistic Elixir Blog Engine",
   "private": true,
   "scripts": {
-    "link-config": "ln -fs $BLOG_PATH/config ./",
+    "link-blog": "ln -fs $BLOG_PATH/config ./ && ln -fs $BLOG_PATH/images ./priv/static/",
     "build-dev": "gulp",
-    "dev": "npm run build-dev && npm run link-config && mix phoenix.server",
+    "dev": "npm run build-dev && npm run link-blog && mix phoenix.server",
     "build-production": "gulp build-production --production"
   },
   "devDependencies": {
