@@ -8,8 +8,6 @@ defmodule MebeEngine.Worker do
   alias MebeEngine.Crawler
   alias MebeEngine.DB
 
-  @data_path System.get_env("BLOG_PATH")
-
   def start_link(opts \\ []) do
     GenServer.start_link(__MODULE__, :ok, opts)
   end
@@ -17,7 +15,7 @@ defmodule MebeEngine.Worker do
   def init(:ok) do
     load_db
     if Mix.env == :dev do
-      :fs.start_link(:fs_watcher, @data_path)
+      :fs.start_link(:fs_watcher, System.get_env("BLOG_PATH"))
       :fs.subscribe(:fs_watcher)
     end
     {:ok, nil}
@@ -46,7 +44,7 @@ defmodule MebeEngine.Worker do
   Initialize the database by crawling the configured path and parsing data to the DB.
   """
   def load_db() do
-    Logger.info "Loading post database from '#{@data_path}'…"
+    Logger.info "Loading post database from '#{System.get_env("BLOG_PATH")}'…"
 
     %{
       pages: pages,
@@ -54,7 +52,7 @@ defmodule MebeEngine.Worker do
       tags: tags,
       years: years,
       months: months,
-    } = Crawler.crawl @data_path
+    } = Crawler.crawl System.get_env("BLOG_PATH")
 
     Logger.info "Loaded #{Enum.count pages} pages and #{Enum.count posts} posts."
 
