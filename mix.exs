@@ -7,7 +7,7 @@ defmodule MebeWeb.Mixfile do
       version: "1.0.0",
       deps_path: "deps",
       lockfile: "mix.lock",
-      elixir: ">= 1.1.0 and < 1.3.0",
+      elixir: ">= 1.1.0 and < 1.4.0",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix] ++ Mix.compilers,
       build_embedded: Mix.env == :prod,
@@ -33,11 +33,11 @@ defmodule MebeWeb.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, "~> 1.1"},
+      {:phoenix, "~> 1.2"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_html, "~> 2.5"},
+      {:phoenix_html, "~> 2.6"},
       {:cowboy, "~> 1.0"},
-      {:earmark, "~> 0.2"},
+      {:earmark, "~> 1.0"},
       {:fs, git: "https://github.com/synrc/fs", only: :dev, override: true}
     ]
   end

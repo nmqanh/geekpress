@@ -33,9 +33,7 @@ defmodule MebeWeb.Web do
       custom_templates = Application.get_env :mebe_web, :custom_templates
       compiled_view = MebeWeb.Web.module_to_str __MODULE__
 
-      if Map.get custom_templates, compiled_view do
-        root = root <> "/custom"
-      end
+      root = root <> if Map.get(custom_templates, compiled_view), do: "/custom", else: ""
 
       use Phoenix.View, root: root
 
