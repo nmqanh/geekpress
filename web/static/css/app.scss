@@ -649,3 +649,8 @@ body {
 .fb-like.fb_iframe_widget span, .twitter-share-button, .hn-button {
     vertical-align: top !important;
 }
+
+ul.list-inline > li {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
