@@ -18,9 +18,7 @@
     <link href="<%= static_path(@conn, @blog_favicon) %>" rel="icon" type="image/x-icon">
 
     <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <link href='https://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Noticia+Text:400,400i,700,700i|Open+Sans:400,400i,700,700i&subset=latin-ext,vietnamese" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
