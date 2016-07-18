@@ -12,6 +12,7 @@ defmodule MebeWeb.ControllerUtils do
   @blog_authors Application.get_env(:mebe_web, :blog_authors)
   @blog_favicon Application.get_env(:mebe_web, :blog_favicon)
 
+  @linkedin Application.get_env(:mebe_web, :linkedin)
   @facebook Application.get_env(:mebe_web, :facebook)
   @twitter Application.get_env(:mebe_web, :twitter)
   @github Application.get_env(:mebe_web, :github)
@@ -50,6 +51,7 @@ defmodule MebeWeb.ControllerUtils do
     |> assign(:blog_authors, @blog_authors)
     |> assign(:blog_favicon, @blog_favicon)
 
+    |> assign(:linkedin, @linkedin)
     |> assign(:facebook, @facebook)
     |> assign(:twitter, @twitter)
     |> assign(:github, @github)
