@@ -1,4 +1,4 @@
-FROM trenpixster/elixir:latest
+FROM trenpixster/elixir:1.3.4
 
 MAINTAINER Nguyen, Manh Quoc Anh <nmqanh@gmail.com>
 
