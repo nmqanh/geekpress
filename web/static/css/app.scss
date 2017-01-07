@@ -534,6 +534,7 @@ body {
     @include sans-serif;
     display: block;
     padding-left: 0;
+    margin-top: 0.5em;
     li {
         a {
             padding: 5px 10px;
@@ -545,7 +546,6 @@ body {
             letter-spacing: 0;
             font-style: normal;
             font-weight: 400;
-            text-transform: capitalize;
         }
         a:hover {
             color: #0085A1 !important;
