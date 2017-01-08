@@ -11,7 +11,10 @@
       <%= @post.title %>
   </h2>
 </a>
-<div class="post-meta">Written on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by <img class="avatar" src="<%= static_path(@conn, @blog_authors[@post.author].avatar) %>"><%= @blog_authors[@post.author].full_name %>
+<div class="post-meta">Written on <a href="<%= page_path @conn, :year, year, 1 %>"><%= year %>-<%= j_month %>-<%= j_day %></a> by
+<div class="inline-block">
+  <img class="avatar" src="<%= static_path(@conn, @blog_authors[@post.author].avatar) %>"><%= @blog_authors[@post.author].full_name %>
+</div>
     <%= if @post.tags do %>
       <ul class="post-tags">
         <%= for tag <- @post.tags do %>

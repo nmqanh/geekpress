@@ -35,6 +35,10 @@ figure.thumbnail {
     border: none;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 h1,
 h2,
 h3,
@@ -534,7 +538,6 @@ body {
     @include sans-serif;
     display: block;
     padding-left: 0;
-    margin-top: 0.5em;
     li {
         a {
             padding: 5px 10px;
@@ -550,12 +553,12 @@ body {
         a:hover {
             color: #0085A1 !important;
         }
-        margin-left: 0.4em;
+        margin: 0.4em 0.2em 0 0;
         list-style: none;
-        display: inline;
+        display: inline-block;
     }
-    li:first-child {
-        margin-left: 0 !important;
+    li:last-child {
+        margin-right: 0 !important;
     }
 }
 
@@ -573,7 +576,7 @@ body {
                 font-size: 0.8em !important;
                 padding: 8px 15px !important;
             }
-            margin-left: 0.8em;
+            margin-bottom: 0.4em;
         }
     }
 
