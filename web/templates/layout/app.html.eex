@@ -8,7 +8,6 @@
     <meta property="og:url" content="<%= url(@conn) <> @conn.request_path %>"/>
     <meta property="og:type" content="website"/>
     <meta property="fb:app_id" content="<%= @facebook_appid %>" />
-
     <!-- OpenGraph Meta -->
     <%= render "meta.html", assigns %>
     <meta property="og:site_name" content="<%= @blog_name %>"/>
@@ -35,6 +34,8 @@
         <link href="<%= feed_url @conn, :index %>" rel="alternate" type="application/rss+xml" title="RSS feed" />
       <% end %>
     <% end %>
+    <!-- Code Highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-light.min.css">
 </head>
 
 <body>
@@ -167,6 +168,9 @@
     <!-- Javascripts -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <%= raw extra_html %>
+    <!-- Code Highlighting -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
 
